@@ -1,8 +1,10 @@
 package com.xw.zy.dubbo.two.server.controller;
 
 import com.xw.zy.dubbo.two.server.request.RecordPushRequest;
+import com.xw.zy.dubbo.two.server.service.OrderRecordService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,9 @@ public class OrderRecordController {
     private static final Logger log = LoggerFactory.getLogger(OrderRecordController.class);
 
     private static final String prefix = "order";
+
+    @Autowired
+    private OrderRecordService orderRecordService;
     /**
      * @author xw
      * @date
@@ -35,7 +40,7 @@ public class OrderRecordController {
         try{
             log.info("接收到请求参数：{}",pushRequest);
             //TODO: 处理用户下单数据-发起用户下单接口的调用
-
+            orderRecordService.pushRecord(pushRequest);
 
         }catch (Exception e){
             e.printStackTrace();

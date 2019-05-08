@@ -19,6 +19,6 @@
 	<dubbo:application name="dubboTwo-consume" owner="debug" organization="dubbox"/>
 
     <!--引入服务提供方提供的dubbo服务-->
-    <dubbo:reference interface="com.xw.zy.dubbo.one.api.service.ItemInfoService" url="dubbo://127.0.0.1:20904" id="dubboItemService" protocol="dubbo" version="1.0" timeout="20000"></dubbo:reference>
+    <dubbo:reference interface="com.xw.zy.dubbo.one.api.service.ItemInfoService" id="dubboItemService" protocol="dubbo" version="1.0" timeout="20000"></dubbo:reference>
 
 </beans>
